@@ -1,5 +1,4 @@
 #include "RokDuino.h"
-RokDuino rok;  // Declare RokDuino object
 byte command1;
 
 void setup() {
@@ -7,9 +6,9 @@ void setup() {
 }
 
 void loop() {
-  command1 = rok.IR_Read();
+  command1 = ROKDuino::getInstance()->irRead();
   
-  Serial.print(rok.addressRead());
+  Serial.print(ROKDuino::getInstance()->addressRead());
   Serial.print("\t");
   Serial.println(command1, BIN);
   

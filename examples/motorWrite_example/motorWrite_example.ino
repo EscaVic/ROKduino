@@ -1,5 +1,4 @@
 #include "RokDuino.h"
-RokDuino rok;  // Declare RokDuino object
 
 byte motorModule = 1;   // motor connected to motor port 1
 int speed = 0;
@@ -16,13 +15,13 @@ void loop() {
   // specify speed and direction separately
   for (speed = 0; speed <= 1023; speed++)
   {
-     rok.motorWrite(motorModule, speed, CLOCKWISE);
+    ROKDuino::getInstance()->motorWrite(motorModule, speed, CLOCKWISE);
     Serial.println(speed);
     delay(2);
   }
   for (speed = 1023; speed >= 0; speed--)
   {
-    rok.motorWrite(motorModule, speed, CLOCKWISE);
+    ROKDuino::getInstance()->motorWrite(motorModule, speed, CLOCKWISE);
     Serial.println(speed);
     delay(2);
   }
@@ -30,19 +29,19 @@ void loop() {
   // specify direction with positive or negative speed
   for (speed = 0; speed >= -1023; speed--)
   {
-     rok.motorWrite(motorModule, speed);
+    ROKDuino::getInstance()->motorWrite(motorModule, speed);
     Serial.println(speed);
     delay(2);
   }
   for (speed = -1023; speed <= 1023; speed++)
   {
-    rok.motorWrite(motorModule, speed);
+    ROKDuino::getInstance()->motorWrite(motorModule, speed);
     Serial.println(speed);
     delay(2);
   }
   for (speed = 1023; speed >= 0; speed--)
   {
-    rok.motorWrite(motorModule, speed);
+    ROKDuino::getInstance()->motorWrite(motorModule, speed);
     Serial.println(speed);
     delay(2);
   }

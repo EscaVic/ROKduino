@@ -1,5 +1,4 @@
 #include "RokDuino.h"
-RokDuino rok;  // Declare RokDuino object
 
 int proxTX = 5;      // prox TX connected to sensor port 5 (battery power)
 int proxRX = 8;      // prox RX connected to sensor port 8
@@ -11,5 +10,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.println(rok.proximityRead(proxTX, proxRX));
+  Serial.println(ROKDuino::getInstance()->proximityRead(proxTX, proxRX));
 }
