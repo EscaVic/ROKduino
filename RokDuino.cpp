@@ -472,7 +472,7 @@ void ROKduino::irRX()
    //if maxed bits are received, receiveCmd() is called then message and count are reset to zero
    if (count >= BITS_IN)
    {
-      ROKDuino::receiveCmd(); // TODO: make receiveCmd() static also?
+      ROKduino::receiveCmd(); // TODO: make receiveCmd() static also?
       message = 0;
       count = 0;
    }
