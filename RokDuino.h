@@ -1,19 +1,19 @@
 //Rokduino.h header file 2.0.0
 //Matthew Woodley, Nick Morozovsky and Victor Wang
-// 11/23/2015
+// 11/29/2015
  
  
 #ifndef ROKDUINO_H
 #define ROKDUINO_H
  
 #include "Arduino.h"
-#include "ROKDuinoConstants.h" 
+#include "ROKduinoConstants.h" 
  
-class ROKDuino
+class ROKduino
 {
    public:
 
-      ROKDuino();
+      ROKduino();
       static void speakerWrite(unsigned long frequency, unsigned long duration = 0);
    
       void motorWrite(byte motor, int mtr_speed, boolean dir);
@@ -45,7 +45,7 @@ class ROKDuino
       static unsigned long getEndNoteTime();
 
       // Singleton
-      static ROKDuino* getInstance(); 
+      static ROKduino* getInstance(); 
  
 private:
  
@@ -55,7 +55,7 @@ private:
       int SENSOR_PINS[9] = {0, SENSOR_1, SENSOR_2, SENSOR_3, SENSOR_4, SENSOR_5, SENSOR_6, SENSOR_7, SENSOR_8};
 
  
-      static ROKDuino* instance;
+      static ROKduino* instance;
       static unsigned long lastTimestamp;
       static byte count;
       static unsigned long timestamp;

@@ -1,4 +1,6 @@
-#include "RokDuino.h"
+#include "ROKduino.h"
+// Pointer to ROKduino lib
+ROKduino* rok;
 
 byte motorModule = 1;   // motor connected to motor port 1
 int speed = 0;
@@ -7,6 +9,8 @@ int i;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
+  // Get singleton reference to ROKduino
+  rok = ROKduino::getInstance();
 }
 
 void loop() {
@@ -15,13 +19,13 @@ void loop() {
   // specify speed and direction separately
   for (speed = 0; speed <= 1023; speed++)
   {
-    ROKDuino::getInstance()->motorWrite(motorModule, speed, CLOCKWISE);
+    rok->motorWrite(motorModule, speed, CLOCKWISE);
     Serial.println(speed);
     delay(2);
   }
   for (speed = 1023; speed >= 0; speed--)
   {
-    ROKDuino::getInstance()->motorWrite(motorModule, speed, CLOCKWISE);
+    rok->motorWrite(motorModule, speed, CLOCKWISE);
     Serial.println(speed);
     delay(2);
   }
@@ -29,19 +33,19 @@ void loop() {
   // specify direction with positive or negative speed
   for (speed = 0; speed >= -1023; speed--)
   {
-    ROKDuino::getInstance()->motorWrite(motorModule, speed);
+    rok->motorWrite(motorModule, speed);
     Serial.println(speed);
     delay(2);
   }
   for (speed = -1023; speed <= 1023; speed++)
   {
-    ROKDuino::getInstance()->motorWrite(motorModule, speed);
+    rok->motorWrite(motorModule, speed);
     Serial.println(speed);
     delay(2);
   }
   for (speed = 1023; speed >= 0; speed--)
   {
-    ROKDuino::getInstance()->motorWrite(motorModule, speed);
+    rok->motorWrite(motorModule, speed);
     Serial.println(speed);
     delay(2);
   }

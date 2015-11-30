@@ -1,9 +1,9 @@
 //Rokduino.h header file 2.0.0
 //Matthew Woodley, Nick Morozovsky and Victor Wang
-// 11/18/2015
+// 11/29/2015
  
  
-#include "ROKDuino.h"
+#include "ROKduino.h"
  
  
 /* Index
@@ -31,29 +31,29 @@
  
 
 // Static member declarations
-ROKDuino* ROKDuino::instance = 0;
-unsigned long ROKDuino::lastTimestamp = micros();
-byte ROKDuino::count = 0;
-unsigned long ROKDuino::timestamp = 0;
-unsigned long ROKDuino::dt = 0;
-unsigned long ROKDuino::message = 0;
-volatile unsigned long ROKDuino::cmdTimestamp = 0;
-volatile byte ROKDuino::address = 0;
-volatile byte ROKDuino::command = 0;
-uint8_t* ROKDuino::_pinMode1 = 0;
-uint8_t* ROKDuino::_pinMode2 = 0;
-volatile uint8_t* ROKDuino::_pinOutput1 = 0;
-volatile uint8_t* ROKDuino::_pinOutput2 = 0;
-uint8_t ROKDuino::_pinMask1 = 0;
-uint8_t ROKDuino::_pinMask2 = 0;
-uint8_t ROKDuino::_speakerOn = 0;
-unsigned long ROKDuino::_nt_time = 0;
+ROKduino* ROKduino::instance = 0;
+unsigned long ROKduino::lastTimestamp = micros();
+byte ROKduino::count = 0;
+unsigned long ROKduino::timestamp = 0;
+unsigned long ROKduino::dt = 0;
+unsigned long ROKduino::message = 0;
+volatile unsigned long ROKduino::cmdTimestamp = 0;
+volatile byte ROKduino::address = 0;
+volatile byte ROKduino::command = 0;
+uint8_t* ROKduino::_pinMode1 = 0;
+uint8_t* ROKduino::_pinMode2 = 0;
+volatile uint8_t* ROKduino::_pinOutput1 = 0;
+volatile uint8_t* ROKduino::_pinOutput2 = 0;
+uint8_t ROKduino::_pinMask1 = 0;
+uint8_t ROKduino::_pinMask2 = 0;
+uint8_t ROKduino::_speakerOn = 0;
+unsigned long ROKduino::_nt_time = 0;
 
  
 // ====================== Constructor ==================================================//
 //=====================================================================================//
  
-ROKDuino::ROKDuino()
+ROKduino::ROKduino()
 {
    //======================== Sensor pins assignments ==================================// 
    // Define sensor by type. 
@@ -115,7 +115,7 @@ ROKDuino::ROKDuino()
 //direction boolean value of CLOCKWISE(0) or COUNTER_CLOCKWISE(1) 
 //Switch statement selects motor number where the corresponding speed and direction are assigned
  
-void ROKDuino::motorWrite(byte motor, int mtr_speed, boolean dir)
+void ROKduino::motorWrite(byte motor, int mtr_speed, boolean dir)
 {
    switch(motor)
    { 
@@ -140,7 +140,7 @@ void ROKDuino::motorWrite(byte motor, int mtr_speed, boolean dir)
 }//END motorWrite() Functions ========================//
 //===================================================//
  
-void ROKDuino::motorWrite(byte motor, int mtr_velocity)
+void ROKduino::motorWrite(byte motor, int mtr_velocity)
 {
    if (mtr_velocity > 0)
    {
@@ -166,7 +166,7 @@ void ROKDuino::motorWrite(byte motor, int mtr_velocity)
 //RXLED0(OFF)/ TXLED1(ON) right LED
  
  
-void ROKDuino::ledWrite(byte which, byte mode)
+void ROKduino::ledWrite(byte which, byte mode)
 {
    switch(which)
    {
@@ -231,7 +231,7 @@ void ROKDuino::ledWrite(byte which, byte mode)
 //Sensors 4-8 are analog inputs  
 //analog inputs that read 10 bits of resolution and assigns any value between 0 and 1023
  
-int ROKDuino::sensorRead(byte sensor)
+int ROKduino::sensorRead(byte sensor)
 {
    int senseIn;
 
@@ -281,7 +281,7 @@ int ROKDuino::sensorRead(byte sensor)
 //Takes in no parameters
 //returns float value of battery voltage scaled by factor
  
-float ROKDuino::batteryRead()
+float ROKduino::batteryRead()
 {
    return BATT_SCALE_FACTOR * analogRead(BATT_READ_PIN); 
 }//END batteryRead()===================================//
@@ -292,7 +292,7 @@ float ROKDuino::batteryRead()
 // ==============================addressRead() Function==========================================//
 //===============================================================================================//
  
-byte ROKDuino::addressRead()
+byte ROKduino::addressRead()
 {
    return address;
 }//END addressRead()======================================//
@@ -303,7 +303,7 @@ byte ROKDuino::addressRead()
 // ==============================addressWrite() Function==========================================//
 //===============================================================================================//
  
-void ROKDuino::addressWrite(byte newAddress)
+void ROKduino::addressWrite(byte newAddress)
 {
    address = newAddress;
 }//END addressWrite()=======================================//
@@ -331,7 +331,7 @@ void ROKDuino::addressWrite(byte newAddress)
 //duration-amount of microseconds delayed between ON/OFF cycles
 //Pulses pins and returns nothing
  
-void ROKDuino::cycle(byte pin, int duration)
+void ROKduino::cycle(byte pin, int duration)
 { 
    digitalWrite(pin, HIGH);
    delayMicroseconds(duration);
@@ -343,7 +343,7 @@ void ROKDuino::cycle(byte pin, int duration)
 //---8c.
 // ==============================checkSumCalc() function==============================================//
  
-byte ROKDuino::checkSumCalc(byte address, byte command)
+byte ROKduino::checkSumCalc(byte address, byte command)
 { 
    return ( ((address>>4) & (1<<4)-1) + (address & (1<<4)-1) + ((command>>4) & (1<<4)-1) + (command & (1<<4)-1)  & (1<<3)-1); 
 }//END checkSumCalc()=======================//
@@ -354,7 +354,7 @@ byte ROKDuino::checkSumCalc(byte address, byte command)
 // ==============================irWrite() function==============================================//
  
  
-void ROKDuino::irWrite(byte sensor, byte command, byte address)
+void ROKduino::irWrite(byte sensor, byte command, byte address)
 {
    // disable interrupts
    detachInterrupt(1); // IR Comm RX - this does work, or compile at least
@@ -424,7 +424,7 @@ void ROKDuino::irWrite(byte sensor, byte command, byte address)
 // ==============================irRead() Function==========================================//
 //===============================================================================================//
  
-byte ROKDuino::irRead()
+byte ROKduino::irRead()
 { 
    //check for timeout
    if ( ( (micros()) - cmdTimestamp ) > CMD_TIMEOUT )
@@ -440,7 +440,7 @@ byte ROKDuino::irRead()
 // ==============================irRead() function==============================================//
  
  
-void ROKDuino::irRX()
+void ROKduino::irRX()
 {
    //Takes in no parameters and is triggered by interrupt #1 on pin 2.  Each time there is a falling edge, the 
    //it determines the length of pulse.  If it has been 600us or longer since last interrupt has been triggered
@@ -484,7 +484,7 @@ void ROKDuino::irRX()
 // ================================receiveCmd() function==============================================//
  
  
-void ROKDuino::receiveCmd()
+void ROKduino::receiveCmd()
 {
    //takes in no parameters takes incoming message captured in readIR
    //parses bit stream into a message (msgAddr), a command (ma
@@ -533,7 +533,7 @@ void ROKDuino::receiveCmd()
  
 // =========================Proximity Sensor========================================================//
  
-int ROKDuino::proximityRead(byte TXpin, byte RXpin)
+int ROKduino::proximityRead(byte TXpin, byte RXpin)
 {
    if (TXpin != RXpin)
    {
@@ -552,7 +552,7 @@ int ROKDuino::proximityRead(byte TXpin, byte RXpin)
 }
  
 
-void ROKDuino::speakerWrite(unsigned long frequency, unsigned long duration)
+void ROKduino::speakerWrite(unsigned long frequency, unsigned long duration)
 {
    if (frequency > 0)
    {
@@ -621,13 +621,13 @@ void ROKDuino::speakerWrite(unsigned long frequency, unsigned long duration)
    }
 }
 
-unsigned long ROKDuino::getEndNoteTime()
+unsigned long ROKduino::getEndNoteTime()
 {
    return _nt_time;
 }
 
 
-void ROKDuino::togglePinState()
+void ROKduino::togglePinState()
 {
    *_pinOutput1 ^= _pinMask1; // Toggle the pin 1 state.
    *_pinOutput2 ^= _pinMask2; // Toggle the pin 2 state.   
@@ -635,20 +635,20 @@ void ROKDuino::togglePinState()
  
 ISR(TIMER3_COMPA_vect)
 { // Timer interrupt vector.
-   if (millis() >= ROKDuino::getInstance()->getEndNoteTime())
+   if (millis() >= ROKduino::getInstance()->getEndNoteTime())
    {
-      ROKDuino::getInstance()->speakerWrite(0); // Check to see if it's time for the note to end.
+      ROKduino::getInstance()->speakerWrite(0); // Check to see if it's time for the note to end.
    }
-   ROKDuino::getInstance()->togglePinState();
+   ROKduino::getInstance()->togglePinState();
 }//*/
 
 // Singleton
-ROKDuino* ROKDuino::getInstance()
+ROKduino* ROKduino::getInstance()
 {
    if (0 == instance)
    {
       // Create object for 1st time
-      instance = new ROKDuino();
+      instance = new ROKduino();
    }
 
    return instance;

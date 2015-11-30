@@ -1,16 +1,16 @@
-#include "RokDuino.h"
-byte command1;
+#include "ROKduino.h"
+// Pointer to ROKduino lib
+ROKduino* rok;
+byte commTX = 6;      // comm TX connected to sensor port 6 (battery power)
 
 void setup() {
-  Serial.begin(115200);
+  // put your setup code here, to run once:
+  // Get singleton reference to ROKduino
+  rok = ROKduino::getInstance();
 }
 
 void loop() {
-  command1 = ROKDuino::getInstance()->irRead();
-  
-  Serial.print(ROKDuino::getInstance()->addressRead());
-  Serial.print("\t");
-  Serial.println(command1, BIN);
-  
-  delay(250);
+  // put your main code here, to run repeatedly:
+  rok->irWrite(commTX, CMD_SPIN_RIGHT); // address 0 by default
+  delay(200);
 }
