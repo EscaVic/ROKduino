@@ -67,12 +67,6 @@
 		#define CPU_PRESCALE(n)	(CLKPR = 0x80, CLKPR = (n))
 
 		#define LED_SETUP()		DDRB |= (1<<0); DDRD |= (1<<5);
-		#define L_LED_OFF()		PORTD &= ~(1<<5)
-		#define L_LED_ON()		PORTD |= (1<<5)
-		#define L_LED_TOGGLE()		PORTD ^= (1<<5)
-		#define R_LED_OFF()		PORTB &= ~(1<<0)
-		#define R_LED_ON()		PORTB |= (1<<0)
-		#define R_LED_TOGGLE()		PORTB ^= (1<<0)
 
 		#if DEVICE_PID == 0x0037	// polarity of the RX and TX LEDs is reversed on the Micro
 			#define TX_LED_OFF()	PORTD &= ~(1<<5)

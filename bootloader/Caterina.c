@@ -82,7 +82,6 @@ void StartSketch(void)
 	MCUCR = (1 << IVCE);
 	MCUCR = 0;
 
-	L_LED_OFF();
 	TX_LED_OFF();
 	RX_LED_OFF();
 
@@ -101,13 +100,13 @@ void LEDPulse(void)
 	p += p;
 	if (((uint8_t)LLEDPulse) > p)
 	{
-		L_LED_OFF();
-		R_LED_ON();
+		TX_LED_OFF();
+		RX_LED_ON();
 	}
 	else
 	{
-		L_LED_ON();
-		R_LED_OFF();
+		TX_LED_ON();
+		RX_LED_OFF();
 	}
 }
 
@@ -180,7 +179,6 @@ void SetupHardware(void)
 	
 	LED_SETUP();
 	CPU_PRESCALE(0); 
-	L_LED_OFF();
 	TX_LED_OFF();
 	RX_LED_OFF();
 	
