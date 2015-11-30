@@ -506,7 +506,7 @@ void ROKduino::receiveCmd()
    //Serial.println(chk, BIN);
    
    // checksum matches
-   if (msgChk == ROKDuino::checkSumCalc(msgAddr, msgCmd))
+   if (msgChk == ROKduino::checkSumCalc(msgAddr, msgCmd))
    {
       if (msgCmd == CMD_HEY_YOU)  // if "hey you" set address
       {
