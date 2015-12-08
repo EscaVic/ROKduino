@@ -21,7 +21,7 @@
  
 3. readSensor()
  
-4. batteryVoltage()
+4. batteryRead()
  
 5. IR_TX 
  

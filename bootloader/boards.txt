@@ -842,7 +842,7 @@ gemma.upload.maximum_size=5310
 
 ##############################################################
 
-rok.name=RokDuino
+rok.name=ROKduino
 rok.vid.0=0x2341
 rok.pid.0=0x0036
 rok.vid.1=0x2341
