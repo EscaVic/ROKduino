@@ -1,6 +1,6 @@
 #include "ROKduino.h"
 // Pointer to ROKduino lib
-ROKduino* rok;
+ROKduino* rok = ROKduino::getInstance();
 
 byte motorModule = 1;   // motor connected to motor port 1
 int speed = 0;
@@ -9,8 +9,6 @@ int i;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-  // Get singleton reference to ROKduino
-  rok = ROKduino::getInstance();
 }
 
 void loop() {

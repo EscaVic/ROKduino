@@ -1,6 +1,6 @@
 #include "ROKduino.h"
 // Pointer to ROKduino lib
-ROKduino* rok;
+ROKduino* rok = ROKduino::getInstance();
 byte angleSensor = 8;  // bump sensor connected to sensor port 8
 byte lightModule = 4; 
 
@@ -9,8 +9,6 @@ int sensor;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-  // Get singleton reference to ROKduino
-  rok = ROKduino::getInstance();
 }
 
 void loop() {

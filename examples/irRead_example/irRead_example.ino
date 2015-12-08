@@ -1,13 +1,10 @@
 #include "ROKduino.h"
 // Pointer to ROKduino lib
-ROKduino* rok;
+ROKduino* rok = ROKduino::getInstance();
 byte command1;
 
 void setup() {
-  Serial.begin(115200);
-  // Get singleton reference to ROKduino
-  rok = ROKduino::getInstance();
-}
+  Serial.begin(115200);}
 
 void loop() {
   command1 = rok->irRead();

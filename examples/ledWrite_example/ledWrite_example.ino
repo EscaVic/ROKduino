@@ -1,12 +1,9 @@
 #include "ROKduino.h"
 // Pointer to ROKduino lib
-ROKduino* rok;
+ROKduino* rok = ROKduino::getInstance();
 
 void setup() {
   // put your setup code here, to run once:
-  // Get singleton reference to ROKduino
-  rok = ROKduino::getInstance();
-
   rok->ledWrite(LED_LEFT, LED_ON);
 }
 

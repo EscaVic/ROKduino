@@ -1,6 +1,6 @@
 #include "ROKduino.h"
 // Pointer to ROKduino lib
-ROKduino* rok;
+ROKduino* rok = ROKduino::getInstance();
 
 // Melody (liberated from the toneMelody Arduino example sketch by Tom Igoe).
 int melody[] = { 262, 196, 196, 220, 196, 0, 247, 262 };
@@ -9,8 +9,6 @@ int numNotes = 8;
 
 void setup() {
   // put your setup code here, to run once:
-  // Get singleton reference to ROKduino
-  rok = ROKduino::getInstance();
 
   for (int thisNote = 0; thisNote < numNotes; thisNote++)
   { // Loop through the notes in the array.

@@ -1,12 +1,10 @@
 #include "ROKduino.h"
 // Pointer to ROKduino lib
-ROKduino* rok;
+ROKduino* rok = ROKduino::getInstance();
 byte commTX = 6;      // comm TX connected to sensor port 6 (battery power)
 
 void setup() {
   // put your setup code here, to run once:
-  // Get singleton reference to ROKduino
-  rok = ROKduino::getInstance();
 }
 
 void loop() {
