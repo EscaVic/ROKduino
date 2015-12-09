@@ -3,8 +3,7 @@
 ROKduino* rok = ROKduino::getInstance();
 
 byte motorModule = 1;   // motor connected to motor port 1
-int speed = 0;
-int i;
+int speed;
 
 void setup() {
   // put your setup code here, to run once:
