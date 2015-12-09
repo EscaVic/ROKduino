@@ -18,6 +18,7 @@ class ROKduino
    
       void motorWrite(byte motor, int mtr_speed, boolean dir);
       void motorWrite(byte motor, int mtr_velocity);
+      void lightWrite(byte light, int brightness, boolean color);
  
       void ledWrite(byte which, byte mode);
   
