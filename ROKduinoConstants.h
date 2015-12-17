@@ -22,6 +22,8 @@
  
 #define CLOCKWISE 0
 #define COUNTER_CLOCKWISE 1
+#define GREEN CLOCKWISE
+#define RED COUNTER_CLOCKWISE
    
 //============================= LED CONTROL/SENSE DECLARATIONS =========================//
  

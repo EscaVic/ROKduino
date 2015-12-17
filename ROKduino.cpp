@@ -151,6 +151,11 @@ void ROKduino::motorWrite(byte motor, int mtr_velocity)
        motorWrite(motor, -mtr_velocity, CLOCKWISE);
    }
 }
+
+void ROKduino::lightWrite(byte light, int brightness, boolean color)
+{
+	motorWrite(light, brightness, color);
+}
  
 //---2.
 //======================== ledWrite() Function========================================//
