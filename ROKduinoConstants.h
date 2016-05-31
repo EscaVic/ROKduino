@@ -89,13 +89,19 @@
 #define CMD_SPIN_RIGHT_SLOW 0x3D
 #define CMD_SPIN_LEFT_SLOW 0x35
  
-// TODO: label which is X/Y and A/B, experiment w/controller
+// Legacy commands for compatibility with ROK star vehicles
 #define CMD_MOTOR_3_FORWARD 0x47
 #define CMD_MOTOR_3_BACKWARD 0x46
 #define CMD_MOTOR_3_STOP 0x44
 #define CMD_MOTOR_4_FORWARD 0x4F
 #define CMD_MOTOR_4_BACKWARD 0x4E
 #define CMD_MOTOR_4_STOP 0x4C
+
+// Maker ROK-Bot Motor Modules Commands
+#define CMD_XY_MOTOR_CLOCKWISE CMD_MOTOR_3_BACKWARD			// Y button
+#define CMD_XY_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_3_FORWARD	// X button
+#define CMD_AB_MOTOR_CLOCKWISE CMD_MOTOR_4_BACKWARD			// B button
+#define CMD_AB_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_4_FORWARD	// A button
  
 #define CMD_TRIM_RIGHT 0x67     // left forefinger + right buttons
 #define CMD_TRIM_LEFT 0x66      // left forefinger + left buttons
