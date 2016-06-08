@@ -102,6 +102,11 @@
 #define CMD_XY_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_3_FORWARD	// X button
 #define CMD_AB_MOTOR_CLOCKWISE CMD_MOTOR_4_BACKWARD			// B button
 #define CMD_AB_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_4_FORWARD	// A button
+
+#define CMD_Y_BUTTON CMD_MOTOR_3_BACKWARD			// Y button
+#define CMD_X_BUTTON CMD_MOTOR_3_FORWARD	// X button
+#define CMD_B_BUTTON CMD_MOTOR_4_BACKWARD			// B button
+#define CMD_A_BUTTON CMD_MOTOR_4_FORWARD	// A button
  
 #define CMD_TRIM_RIGHT 0x67     // left forefinger + right buttons
 #define CMD_TRIM_LEFT 0x66      // left forefinger + left buttons
