@@ -1,5 +1,5 @@
 //RokduinoConstants.h header file 2.0.0
-// Matthew Woodley, Nick Morozovsky, Victor Wang
+// Matthew Woodley, Nick Morozovsky, Victor Wang, Keanan Smith
 // 11/29/2015
   
 #ifndef ROKDUINOCONSTANTS_H
@@ -41,8 +41,8 @@
 #define SENSOR_3    19  //analog A1
 #define SENSOR_4   	20	//analog A2
 #define SENSOR_5    9   //
-#define SENSOR_6  	10   //
-#define SENSOR_7  	18   //analog A0
+#define SENSOR_6  	10  //
+#define SENSOR_7  	18  //analog A0
 #define SENSOR_8  	2   //
  
 //============================ BATTERY READ DECLARATIONS===============================//
