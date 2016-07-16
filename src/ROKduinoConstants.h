@@ -36,14 +36,14 @@
  
 //============================ SENSOR DECLARATIONS =====================================//
  
-#define SENSOR_1    21	//analog A3
-#define SENSOR_2    22	//analog A4
-#define SENSOR_3    19  //analog A1
-#define SENSOR_4   	20	//analog A2
-#define SENSOR_5    9   //
-#define SENSOR_6  	10  //
-#define SENSOR_7  	18  //analog A0
-#define SENSOR_8  	2   //
+#define SENSOR_1	21	//analog A3
+#define SENSOR_2	22	//analog A4
+#define SENSOR_3	19	//analog A1
+#define SENSOR_4	20	//analog A2
+#define SENSOR_5	9	//
+#define SENSOR_6	10	//
+#define SENSOR_7	18	//analog A0
+#define SENSOR_8	2	//
  
 //============================ BATTERY READ DECLARATIONS===============================//
  
