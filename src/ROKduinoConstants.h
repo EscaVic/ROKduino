@@ -54,7 +54,7 @@
  
 //========================== READ IR ==============================================//
  
-#define IR_RX_PIN     2     // maps to sensor port 3
+#define IR_RX_PIN     2     // maps to sensor port 8
 #define BITS_IN       19 
  
 //========================== WRITE IR ==============================================//
@@ -98,15 +98,15 @@
 #define CMD_MOTOR_4_STOP 0x4C
 
 // Maker ROK-Bot Motor Modules Commands
-#define CMD_XY_MOTOR_CLOCKWISE CMD_MOTOR_3_BACKWARD			// Y button
-#define CMD_XY_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_3_FORWARD	// X button
-#define CMD_AB_MOTOR_CLOCKWISE CMD_MOTOR_4_BACKWARD			// B button
-#define CMD_AB_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_4_FORWARD	// A button
+#define CMD_XY_MOTOR_CLOCKWISE CMD_MOTOR_3_BACKWARD         // Y button
+#define CMD_XY_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_3_FORWARD  // X button
+#define CMD_AB_MOTOR_CLOCKWISE CMD_MOTOR_4_BACKWARD         // B button
+#define CMD_AB_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_4_FORWARD  // A button
 
-#define CMD_Y_BUTTON CMD_MOTOR_3_BACKWARD			// Y button
-#define CMD_X_BUTTON CMD_MOTOR_3_FORWARD	// X button
-#define CMD_B_BUTTON CMD_MOTOR_4_BACKWARD			// B button
-#define CMD_A_BUTTON CMD_MOTOR_4_FORWARD	// A button
+#define CMD_Y_BUTTON CMD_MOTOR_3_BACKWARD   // Y button
+#define CMD_X_BUTTON CMD_MOTOR_3_FORWARD    // X button
+#define CMD_B_BUTTON CMD_MOTOR_4_BACKWARD   // B button
+#define CMD_A_BUTTON CMD_MOTOR_4_FORWARD    // A button
  
 #define CMD_TRIM_RIGHT 0x67     // left forefinger + right buttons
 #define CMD_TRIM_LEFT 0x66      // left forefinger + left buttons
