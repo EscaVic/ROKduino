@@ -20,8 +20,8 @@
 #define MOTOR_4_DIR       12     
 #define MOTOR_4_SPEED     13
  
-#define CLOCKWISE 0
-#define COUNTER_CLOCKWISE 1
+#define CLOCKWISE 1
+#define COUNTER_CLOCKWISE 0
 #define GREEN CLOCKWISE
 #define RED COUNTER_CLOCKWISE
    
