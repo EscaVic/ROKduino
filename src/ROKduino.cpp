@@ -58,17 +58,17 @@ ROKduino::ROKduino()
    //======================== Sensor pins assignments ==================================// 
    // Define sensor by type. 
  
-   //Sensors 1-3 are digital inputs. Internal pullup resistors are enabled 
-   pinMode(SENSOR_1, INPUT_PULLUP);  
-   pinMode(SENSOR_2, INPUT_PULLUP);  
-   pinMode(SENSOR_3, INPUT_PULLUP);
+   //Sensors 5,6,8 are digital inputs. Internal pullup resistors are enabled 
+   pinMode(SENSOR_5, INPUT_PULLUP);  
+   pinMode(SENSOR_6, INPUT_PULLUP);  
+   pinMode(SENSOR_8, INPUT_PULLUP);
  
-   //Sensors 4-8 are analog input. 
-   pinMode(SENSOR_4, INPUT);       
-   pinMode(SENSOR_5, INPUT);
-   pinMode(SENSOR_6, INPUT);
-   pinMode(SENSOR_7, INPUT);
-   pinMode(SENSOR_8, INPUT);  
+   //Sensors 1-4 & 7 are analog input. 
+   pinMode(SENSOR_1, INPUT);       
+   pinMode(SENSOR_2, INPUT);
+   pinMode(SENSOR_3, INPUT);
+   pinMode(SENSOR_4, INPUT);
+   pinMode(SENSOR_7, INPUT);  
  
    //========================= MotorPins Speed/Dir assignments ==========================//
    // Two parameters, speed and direction for each.
@@ -243,28 +243,28 @@ int ROKduino::sensorRead(byte sensor)
    switch(sensor)
    {  
       case 1:
-         senseIn = 1023*digitalRead(SENSOR_1);
+         senseIn = analogRead(SENSOR_1);
          break;
       case 2:
-         senseIn = 1023*digitalRead(SENSOR_2);
+         senseIn = analogRead(SENSOR_2);
          break;
       case 3:
-         senseIn = 1023*digitalRead(SENSOR_3);
+         senseIn = analogRead(SENSOR_3);
          break;
       case 4:
          senseIn = analogRead(SENSOR_4);//maybe have to declare A2 instead of 20??
          break;
       case 5:
-         senseIn = analogRead(SENSOR_5);
+         senseIn = 1023*digitalRead(SENSOR_5);
          break;
       case 6:
-         senseIn = analogRead(SENSOR_6);
+         senseIn = 1023*digitalRead(SENSOR_6);
          break;
       case 7:
          senseIn = analogRead(SENSOR_7);
          break;
       case 8:
-         senseIn = analogRead(SENSOR_8);
+         senseIn = 1023*digitalRead(SENSOR_8);
          break;
       default:
          senseIn = -1;  //BETTER ERROR PROTECTION???
