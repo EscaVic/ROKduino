@@ -252,7 +252,7 @@ int ROKduino::sensorRead(byte sensor)
          senseIn = analogRead(SENSOR_3);
          break;
       case 4:
-         senseIn = analogRead(SENSOR_4);//maybe have to declare A2 instead of 20??
+         senseIn = analogRead(SENSOR_4);
          break;
       case 5:
          senseIn = 1023*digitalRead(SENSOR_5);
