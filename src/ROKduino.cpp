@@ -58,10 +58,10 @@ ROKduino::ROKduino()
    //======================== Sensor pins assignments ==================================// 
    // Define sensor by type. 
  
-   //Sensor 8 is digital inputs. Internal pullup resistor is enabled  
+   //Sensor 8 is digital input. Internal pullup resistor is enabled  
    pinMode(SENSOR_8, INPUT_PULLUP);
  
-   //Sensors 1-4 & 7 are analog input. 
+   //Sensors 1-7 are analog inputs. 
    pinMode(SENSOR_1, INPUT);       
    pinMode(SENSOR_2, INPUT);
    pinMode(SENSOR_3, INPUT);
