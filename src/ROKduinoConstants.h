@@ -1,5 +1,5 @@
 //RokduinoConstants.h header file 2.0.0
-// Matthew Woodley, Nick Morozovsky, Victor Wang
+// Matthew Woodley, Nick Morozovsky, Victor Wang, Keanan Smith
 // 11/29/2015
   
 #ifndef ROKDUINOCONSTANTS_H
@@ -20,8 +20,8 @@
 #define MOTOR_4_DIR       12     
 #define MOTOR_4_SPEED     13
  
-#define CLOCKWISE 0
-#define COUNTER_CLOCKWISE 1
+#define CLOCKWISE 1
+#define COUNTER_CLOCKWISE 0
 #define GREEN CLOCKWISE
 #define RED COUNTER_CLOCKWISE
    
@@ -36,14 +36,14 @@
  
 //============================ SENSOR DECLARATIONS =====================================//
  
-#define SENSOR_1    0   ///defined  
-#define SENSOR_2    1   
-#define SENSOR_3    2   
-#define SENSOR_4   20   //analog A2    
-#define SENSOR_5    9   //analog A9
-#define SENSOR_6   10   //analog A10
-#define SENSOR_7   18   //analog A0
-#define SENSOR_8   19   //analog A1 
+#define SENSOR_1    21	//analog A3
+#define SENSOR_2    22	//analog A4
+#define SENSOR_3    19	//analog A1
+#define SENSOR_4    20	//analog A2
+#define SENSOR_5    9	//analog A12
+#define SENSOR_6    10	//analog A13
+#define SENSOR_7    18	//analog A0
+#define SENSOR_8    2	//
  
 //============================ BATTERY READ DECLARATIONS===============================//
  
@@ -54,7 +54,7 @@
  
 //========================== READ IR ==============================================//
  
-#define IR_RX_PIN     2     // maps to sensor port 3
+#define IR_RX_PIN     2     // maps to sensor port 8
 #define BITS_IN       19 
  
 //========================== WRITE IR ==============================================//
@@ -98,15 +98,15 @@
 #define CMD_MOTOR_4_STOP 0x4C
 
 // Maker ROK-Bot Motor Modules Commands
-#define CMD_XY_MOTOR_CLOCKWISE CMD_MOTOR_3_BACKWARD			// Y button
-#define CMD_XY_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_3_FORWARD	// X button
-#define CMD_AB_MOTOR_CLOCKWISE CMD_MOTOR_4_BACKWARD			// B button
-#define CMD_AB_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_4_FORWARD	// A button
+#define CMD_XY_MOTOR_CLOCKWISE CMD_MOTOR_3_BACKWARD         // Y button
+#define CMD_XY_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_3_FORWARD  // X button
+#define CMD_AB_MOTOR_CLOCKWISE CMD_MOTOR_4_BACKWARD         // B button
+#define CMD_AB_MOTOR_COUNTER_CLOCKWISE CMD_MOTOR_4_FORWARD  // A button
 
-#define CMD_Y_BUTTON CMD_MOTOR_3_BACKWARD			// Y button
-#define CMD_X_BUTTON CMD_MOTOR_3_FORWARD	// X button
-#define CMD_B_BUTTON CMD_MOTOR_4_BACKWARD			// B button
-#define CMD_A_BUTTON CMD_MOTOR_4_FORWARD	// A button
+#define CMD_Y_BUTTON CMD_MOTOR_3_BACKWARD   // Y button
+#define CMD_X_BUTTON CMD_MOTOR_3_FORWARD    // X button
+#define CMD_B_BUTTON CMD_MOTOR_4_BACKWARD   // B button
+#define CMD_A_BUTTON CMD_MOTOR_4_FORWARD    // A button
  
 #define CMD_TRIM_RIGHT 0x67     // left forefinger + right buttons
 #define CMD_TRIM_LEFT 0x66      // left forefinger + left buttons

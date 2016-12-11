@@ -58,17 +58,17 @@ ROKduino::ROKduino()
    //======================== Sensor pins assignments ==================================// 
    // Define sensor by type. 
  
-   //Sensors 1-3 are digital inputs. Internal pullup resistors are enabled 
-   pinMode(SENSOR_1, INPUT_PULLUP);  
-   pinMode(SENSOR_2, INPUT_PULLUP);  
-   pinMode(SENSOR_3, INPUT_PULLUP);
+   //Sensor 8 is digital input. Internal pullup resistor is enabled  
+   pinMode(SENSOR_8, INPUT_PULLUP);
  
-   //Sensors 4-8 are analog input. 
-   pinMode(SENSOR_4, INPUT);       
+   //Sensors 1-7 are analog inputs. 
+   pinMode(SENSOR_1, INPUT);       
+   pinMode(SENSOR_2, INPUT);
+   pinMode(SENSOR_3, INPUT);
+   pinMode(SENSOR_4, INPUT);
    pinMode(SENSOR_5, INPUT);
    pinMode(SENSOR_6, INPUT);
-   pinMode(SENSOR_7, INPUT);
-   pinMode(SENSOR_8, INPUT);  
+   pinMode(SENSOR_7, INPUT);  
  
    //========================= MotorPins Speed/Dir assignments ==========================//
    // Two parameters, speed and direction for each.
@@ -243,16 +243,16 @@ int ROKduino::sensorRead(byte sensor)
    switch(sensor)
    {  
       case 1:
-         senseIn = 1023*digitalRead(SENSOR_1);
+         senseIn = analogRead(SENSOR_1);
          break;
       case 2:
-         senseIn = 1023*digitalRead(SENSOR_2);
+         senseIn = analogRead(SENSOR_2);
          break;
       case 3:
-         senseIn = 1023*digitalRead(SENSOR_3);
+         senseIn = analogRead(SENSOR_3);
          break;
       case 4:
-         senseIn = analogRead(SENSOR_4);//maybe have to declare A2 instead of 20??
+         senseIn = analogRead(SENSOR_4);
          break;
       case 5:
          senseIn = analogRead(SENSOR_5);
@@ -264,7 +264,7 @@ int ROKduino::sensorRead(byte sensor)
          senseIn = analogRead(SENSOR_7);
          break;
       case 8:
-         senseIn = analogRead(SENSOR_8);
+         senseIn = 1023*digitalRead(SENSOR_8);
          break;
       default:
          senseIn = -1;  //BETTER ERROR PROTECTION???
