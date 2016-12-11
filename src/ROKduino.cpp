@@ -93,7 +93,9 @@ ROKduino::ROKduino()
  
  
    //========Interrupt
-    attachInterrupt(1, irRX, FALLING);
+   attachInterrupt(1, irRX, FALLING);
+    
+   analogReference(EXTERNAL); // use AREF for reference voltage, equal to Vpp
      
    //_pinMask2   = digitalPinToBitMask(SPEAKER_DOWN);
    // Get the port register bitmask for pin 2.
@@ -407,6 +409,9 @@ void ROKduino::irWrite(byte sensor, byte command, byte address)
    digitalWrite(SENSOR_PINS[sensor], LOW);
    delayMicroseconds(BIT_0_OFF);
    
+   
+   pinMode(SENSOR_PINS[sensor], INPUT);
+   
    // re-attach interrupts
    attachInterrupt(1, irRX, FALLING);
  
@@ -547,6 +552,7 @@ int ROKduino::proximityRead(byte TXpin, byte RXpin)
       delay(1); 
       int ProxIn = 1023 * !digitalRead(SENSOR_PINS[RXpin]);   
       digitalWrite(SENSOR_PINS[TXpin], LOW);
+      pinMode(SENSOR_PINS[TXpin], INPUT);
       return ProxIn;
    }
    // error, TXpin cannot equal RXpin, should also check that both [1,8]?

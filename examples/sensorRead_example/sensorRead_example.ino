@@ -1,10 +1,10 @@
 #include "ROKduino.h"
 // Pointer to ROKduino lib
 ROKduino* rok = ROKduino::getInstance();
-byte angleSensor = 8;  // bump sensor connected to sensor port 8
-byte lightModule = 4; 
+byte sensorPort = 1;
+byte lightModule = 1; 
 
-int sensor;
+int sensorValue;
 
 void setup() {
   // put your setup code here, to run once:
@@ -12,15 +12,15 @@ void setup() {
 }
 
 void loop() {
-  sensor = rok->sensorRead(angleSensor);
-  Serial.println(sensor);
+  sensorValue = rok->sensorRead(sensorPort);
+  Serial.println(sensorValue);
   delay(10);
-  if (sensor < 512)
+  if (sensorValue < 512)
   {
-    rok->motorWrite(lightModule, sensor*2, CLOCKWISE);
+    rok->motorWrite(lightModule, sensorValue*2, CLOCKWISE);
   }
   else
   {
-    rok->motorWrite(lightModule, (sensor-512)*2, COUNTER_CLOCKWISE);
+    rok->motorWrite(lightModule, (1024-sensorValue)*2, COUNTER_CLOCKWISE);
   }
 }
